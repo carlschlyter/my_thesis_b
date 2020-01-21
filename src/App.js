@@ -1,10 +1,11 @@
 import React from 'react';
+import StartPage from './components/StartPage';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <h1>Guessing App</h1>  
+      <StartPage />
     </div>
   );
 }
