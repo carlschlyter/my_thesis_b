@@ -1,11 +1,24 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export default class ChoiceItem extends Component {
     render() {
         return (
-            <div>
-                <p> { title } </p>
+            <div style={ itemStyle }>
+                <p> {this.props.choice.id} {' '} { this.props.choice.title } </p>
             </div>
         )
     }
+}
+
+//PropTypes
+ChoiceItem.propTypes = {
+    choice: PropTypes.object.isRequired
+}
+
+const itemStyle = {
+    backgroundColor: 'Grey',
+    color: 'white',
+    padding: '3px',
+    borderBottom: '1px #ccc dotted'
 }
