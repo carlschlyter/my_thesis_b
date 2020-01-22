@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
-import ChoiceItem from './ChoiceItem';
 
 export default class Choices extends Component {
     render() {
-        return (
-            <div>
-                
-            </div>
-        )
+        return this.props.choices.map(choice => (
+            <h3> { choice.id } {' '} { choice.title }</h3>
+        )); 
     }
 }

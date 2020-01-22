@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import StartPage from './components/StartPage';
 import './App.css';
 import axios from 'axios';
+import Choices from './components/Choices';
 
 class App extends Component {
 
@@ -17,7 +18,8 @@ componentDidMount(){
   render() {
     return (
       <div className="App">
-        <StartPage />
+        <StartPage  />
+        <Choices choices={this.state.choices}/>
       </div>
     );
   }
