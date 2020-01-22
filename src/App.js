@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import StartPage from './components/StartPage';
+import Choices from './components/Choices';
+import Topnav from './components/Topnav';
 import './App.css';
 import axios from 'axios';
-import Choices from './components/Choices';
+
 
 class App extends Component {
 
@@ -18,6 +20,7 @@ componentDidMount(){
   render() {
     return (
       <div className="App">
+        <Topnav />
         <StartPage  />
         <Choices choices={this.state.choices}/>
       </div>
