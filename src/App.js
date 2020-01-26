@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import StartPage from './components/StartPage';
 import Choices from './components/Choices';
-import Topnav from './components/Topnav';
 import './App.css';
 import axios from 'axios';
 
@@ -19,11 +19,16 @@ componentDidMount(){
 
   render() {
     return (
-      <div className="App">
-        <Topnav />
-        <StartPage  />
-        <Choices choices={this.state.choices}/>
-      </div>
+      <Router>
+        <div className="App">
+          <Route path="/" render={props => (
+            <React.Fragment>
+              <StartPage  />
+              <Choices choices={this.state.choices}/> 
+            </React.Fragment>
+          )} />
+        </div>        
+      </Router>
     );
   }
 }
