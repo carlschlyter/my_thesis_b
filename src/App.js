@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Header from './components/layout/Header';
 import StartPage from './components/StartPage';
 import Choices from './components/Choices';
+import Register from './components/pages/Register';
+import Login from './components/pages/Login';
+import Guessing from './components/pages/Guessing';
+import GuessResults from './components/pages/GuessResults';
+import Toplist from './components/pages/Toplist';
 import './App.css';
 import axios from 'axios';
 
@@ -21,14 +27,21 @@ componentDidMount(){
     return (
       <Router>
         <div className="App">
-          <Route path="/" render={props => (
+          <Header />
+          <Route exact path="/" render={props => (
             <React.Fragment>
               <StartPage  />
               <Choices choices={this.state.choices}/> 
             </React.Fragment>
           )} />
+          <Route path="/register" component={Register} />
+          <Route path="/login" component={Login} />
+          <Route path="/guessing" component={Guessing} />
+          <Route path="/guessResults" component={GuessResults} />
+          <Route path="/toplist" component={Toplist} />
         </div>        
       </Router>
+
     );
   }
 }
