@@ -21,3 +21,20 @@ h2 {
 .linkStyle2 {
   color: white
 }
+
+.container {
+  padding: 0 1rem;
+}
+
+.btn {
+  width:128px; 
+  border: none;
+  background: #555;
+  color: #fff;
+  padding: 7px 20px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #888;
+}

@@ -8,6 +8,7 @@ import Login from './components/pages/Login';
 import Guessing from './components/pages/Guessing';
 import GuessResults from './components/pages/GuessResults';
 import Toplist from './components/pages/Toplist';
+import RegUser from './components/RegUser';
 import './App.css';
 import axios from 'axios';
 
@@ -27,21 +28,27 @@ componentDidMount(){
     return (
       <Router>
         <div className="App">
-          <Header />
-          <Route exact path="/" render={props => (
-            <React.Fragment>
-              <StartPage  />
-              <Choices choices={this.state.choices}/> 
-            </React.Fragment>
-          )} />
-          <Route path="/register" component={Register} />
-          <Route path="/login" component={Login} />
-          <Route path="/guessing" component={Guessing} />
-          <Route path="/guessResults" component={GuessResults} />
-          <Route path="/toplist" component={Toplist} />
+          <div className="container">
+            <Header />
+            <Route exact path="/" render={props => (
+              <React.Fragment>
+                <StartPage  />
+                <Choices choices={this.state.choices}/> 
+              </React.Fragment>
+            )} />
+            <Route path="/register" render={props => (
+              <React.Fragment>
+                <Register />
+                <RegUser />
+              </React.Fragment>
+            )} />
+            <Route path="/login" component={Login} />
+            <Route path="/guessing" component={Guessing} />
+            <Route path="/guessResults" component={GuessResults} />
+            <Route path="/toplist" component={Toplist} />
+          </div>
         </div>        
       </Router>
-
     );
   }
 }
