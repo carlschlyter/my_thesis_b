@@ -24,6 +24,11 @@ componentDidMount(){
   .then(res => this.setState({ choices: res.data}))
 }
 
+//Register User
+regUser = (a) => {
+  console.log(a);
+}
+
   render() {
     return (
       <Router>
@@ -39,7 +44,7 @@ componentDidMount(){
             <Route path="/register" render={props => (
               <React.Fragment>
                 <Register />
-                <RegUser />
+                <RegUser regUser={this.regUser}/>
               </React.Fragment>
             )} />
             <Route path="/login" component={Login} />

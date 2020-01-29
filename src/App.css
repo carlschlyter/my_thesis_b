@@ -27,14 +27,19 @@ h2 {
 }
 
 .btn {
-  width:128px; 
+  width:200px; 
   border: none;
   background: #555;
   color: #fff;
+  margin: 4px;
   padding: 7px 20px;
   cursor: pointer;
 }
 
 .btn:hover {
   background: #888;
+}
+
+.std-input {
+  width: 200px;
 }
