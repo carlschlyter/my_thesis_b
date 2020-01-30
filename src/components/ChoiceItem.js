@@ -17,8 +17,8 @@ ChoiceItem.propTypes = {
 }
 
 const itemStyle = {
-    backgroundColor: 'Grey',
+    backgroundColor: 'lightGrey',
     color: 'white',
     padding: '3px',
-    borderBottom: '1px #ccc dotted'
+    borderBottom: '1px white dotted'
 }
