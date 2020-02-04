@@ -5,7 +5,10 @@ export default class ChoiceItem extends Component {
     render() {
         return (
             <div style={ itemStyle }>
-                <p> {this.props.choice.MatchID} {' '} { this.props.choice.MatchName } </p>
+                <p> 
+                {this.props.choice.MatchName} {': Match date: '} 
+                { this.props.choice.MatchDate }                
+                </p>
             </div>
         )
     }
