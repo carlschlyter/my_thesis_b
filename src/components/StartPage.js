@@ -6,7 +6,7 @@ export default class StartPage extends Component {
             <div>
                 <h1>Guessing App For Advertising Agencies</h1>
                 <h2>Activate your customers' target groups with a guessing game!</h2><br/>
-                <h3>Current game to make guesses on: </h3><br/>
+                <h3>Current games to make guesses on: </h3><br/>
             </div>
         )
     }
