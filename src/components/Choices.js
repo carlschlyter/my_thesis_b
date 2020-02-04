@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 export default class Choices extends Component {
     render() {
         return this.props.choices.map(choice => (
-            <ChoiceItem key={choice.id} choice={choice}/>
+            <ChoiceItem key={choice.MatchID} choice={choice}/>
         )); 
     }
 }

@@ -20,8 +20,9 @@ class App extends Component {
   }
 
 componentDidMount(){
-  axios.get('https://jsonplaceholder.typicode.com/todos?_limit=10')
+  axios.get('http://localhost/examensarbete_a/api/game/read.php')
   .then(res => this.setState({ choices: res.data}))
+  // .then(res => console.log(res.data))
 }
 
 //Register User

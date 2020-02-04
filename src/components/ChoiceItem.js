@@ -5,7 +5,7 @@ export default class ChoiceItem extends Component {
     render() {
         return (
             <div style={ itemStyle }>
-                <p> {this.props.choice.id} {' '} { this.props.choice.title } </p>
+                <p> {this.props.choice.MatchID} {' '} { this.props.choice.MatchName } </p>
             </div>
         )
     }
