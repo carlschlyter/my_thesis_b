@@ -8,7 +8,9 @@ import Login from './components/pages/Login';
 import Guessing from './components/pages/Guessing';
 import GuessResults from './components/pages/GuessResults';
 import Toplist from './components/pages/Toplist';
+import Test from './components/pages/Test';
 import RegUser from './components/RegUser';
+import TestCreate from './components/TestCreate';
 import './App.css';
 import axios from 'axios';
 
@@ -39,6 +41,16 @@ regUser = (firstName, lastName, email, userName, passWord, city) => {
   [...this.state.regUser, res.data] }));
 }
 
+//Test Create
+testCreate = (TestID) => {
+  console.log(TestID)
+  // axios.post('http://localhost/examensarbete_a/api/test/create.php', {
+  //   TestID: TestID
+  // })
+  // .then(res => this.setState({ testCreate:
+  // [...this.state.testCreate, res.data] }));
+}
+
   render() {
     return (
       <Router>
@@ -61,6 +73,12 @@ regUser = (firstName, lastName, email, userName, passWord, city) => {
             <Route path="/guessing" component={Guessing} />
             <Route path="/guessResults" component={GuessResults} />
             <Route path="/toplist" component={Toplist} />
+            <Route path="/test" render={props => (
+              <React.Fragment>
+                <Test />
+                <TestCreate testCreate={this.testCreate}/>
+              </React.Fragment>
+            )} />
           </div>
         </div>        
       </Router>
