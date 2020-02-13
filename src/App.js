@@ -18,8 +18,9 @@ import axios from 'axios';
 class App extends Component {
 
   state = {
-    choices: []
+    choices: []    
   }
+
 
 componentDidMount(){
   axios.get('http://localhost/examensarbete_a/api/game/read.php')
@@ -44,11 +45,11 @@ regUser = (firstName, lastName, email, userName, passWord, city) => {
 //Test Create
 testCreate = (TestID) => {
   console.log(TestID)
-  // axios.post('http://localhost/examensarbete_a/api/test/create.php', {
-  //   TestID: TestID
-  // })
-  // .then(res => this.setState({ testCreate:
-  // [...this.state.testCreate, res.data] }));
+  axios.post('http://localhost/examensarbete_a/api/test/create.php', {
+    TestID
+  })
+  .then(res => this.setState({ testCreate:
+  [...this.state.testCreate, res.data] }));
 }
 
   render() {
