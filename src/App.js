@@ -11,6 +11,7 @@ import Toplist from './components/pages/Toplist';
 import Test from './components/pages/Test';
 import RegUser from './components/RegUser';
 import TestCreate from './components/TestCreate';
+import AddChoice from './components/AddChoice';
 import './App.css';
 import axios from 'axios';
 
@@ -18,29 +19,42 @@ import axios from 'axios';
 class App extends Component {
 
   state = {
-    choices: []    
+    choices: [
+      {
+        MatchID: '11',
+        MatchName: 'Spain-Greece'
+      },
+      {
+        MatchID: '12',
+        MatchName: 'Portugal-France'
+      },
+      {
+        MatchID: '13',
+        MatchName: 'Iceland-Norway'
+      }
+    ]    
   }
 
 
-componentDidMount(){
-  axios.get('http://localhost/examensarbete_a/api/game/read.php')
-  .then(res => this.setState({ choices: res.data}))
-  // .then(res => console.log(res.data))
-}
+// componentDidMount(){
+//   axios.get('http://localhost/examensarbete_a/api/game/read.php')
+//   .then(res => this.setState({ choices: [...this.state.choices, res.data]}))
+//   // .then(res => console.log(res.data))
+// }
 
 //Register User
-regUser = (firstName, lastName, email, userName, passWord, city) => {
-  axios.post('http://localhost/examensarbete_a/api/user/create.php', {
-    firstName: firstName,
-    lastName: lastName,
-    email: email,
-    userName: userName,
-    passWord: passWord,
-    city: city
-  })
-  .then(res => this.setState({ regUser:
-  [...this.state.regUser, res.data] }));
-}
+// regUser = (firstName, lastName, email, userName, passWord, city) => {
+//   axios.post('http://localhost/examensarbete_a/api/user/create.php', {
+//     firstName: firstName,
+//     lastName: lastName,
+//     email: email,
+//     userName: userName,
+//     passWord: passWord,
+//     city: city
+//   })
+//   .then(res => this.setState({ regUser:
+//   [...this.state.regUser, res.data] }));
+// }
 
 //Test Create
 testCreate = (TestID) => {
@@ -52,7 +66,19 @@ testCreate = (TestID) => {
   [...this.state.testCreate, res.data] }));
 }
 
+//Add Choice
+addChoice = (MatchID) => {
+  const newChoice = {
+    MatchID: MatchID,
+  }
+
+  this.setState({
+    choices: [...this.state.choices, newChoice]
+  });
+}
+
   render() {
+    // console.log(this.state.choices)
     return (
       <Router>
         <div className="App">
@@ -61,6 +87,7 @@ testCreate = (TestID) => {
             <Route exact path="/" render={props => (
               <React.Fragment>
                 <StartPage  />
+                <AddChoice addChoice={this.addChoice}/>
                 <Choices choices={this.state.choices}/> 
               </React.Fragment>
             )} />
