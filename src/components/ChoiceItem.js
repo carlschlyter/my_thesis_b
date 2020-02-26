@@ -6,8 +6,8 @@ export default class ChoiceItem extends Component {
         return (
             <div style={ itemStyle }>
                 <p> 
-                {this.props.choice.MatchID} {': Match name: '} 
-                { this.props.choice.MatchName }                
+                { this.props.choice.MatchName } {': Match date: '} 
+                { this.props.choice.MatchDate }                
                 </p>
             </div>
         )

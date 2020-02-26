@@ -20,27 +20,27 @@ class App extends Component {
 
   state = {
     choices: [
-      {
-        MatchID: '11',
-        MatchName: 'Spain-Greece'
-      },
-      {
-        MatchID: '12',
-        MatchName: 'Portugal-France'
-      },
-      {
-        MatchID: '13',
-        MatchName: 'Iceland-Norway'
-      }
+      // {
+      //   MatchID: '11',
+      //   MatchName: 'Spain-Greece'
+      // },
+      // {
+      //   MatchID: '12',
+      //   MatchName: 'Portugal-France'
+      // },
+      // {
+      //   MatchID: '13',
+      //   MatchName: 'Iceland-Norway'
+      // }
     ]    
   }
 
 
-// componentDidMount(){
-//   axios.get('http://localhost/examensarbete_a/api/game/read.php')
-//   .then(res => this.setState({ choices: [...this.state.choices, res.data]}))
-//   // .then(res => console.log(res.data))
-// }
+componentDidMount(){
+  axios.get('http://localhost/examensarbete_a/api/game/read.php')
+  .then(res => this.setState({ choices: res.data }))
+  // .then(res => console.log(res.data))
+}
 
 //Register User
 // regUser = (firstName, lastName, email, userName, passWord, city) => {
@@ -63,7 +63,7 @@ testCreate = (TestID) => {
     TestID
   })
   .then(res => this.setState({ testCreate:
-  [...this.state.testCreate, res.data] }));
+   res.data }));
 }
 
 //Add Choice
