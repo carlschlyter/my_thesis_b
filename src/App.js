@@ -14,6 +14,7 @@ import TestCreate from './components/TestCreate';
 import AddChoice from './components/AddChoice';
 import './App.css';
 import axios from 'axios';
+// import uuid from 'uuid';
 
 
 class App extends Component {
@@ -42,39 +43,56 @@ componentDidMount(){
   // .then(res => console.log(res.data))
 }
 
+
 //Register User
-// regUser = (firstName, lastName, email, userName, passWord, city) => {
-//   axios.post('http://localhost/examensarbete_a/api/user/create.php', {
-//     firstName: firstName,
-//     lastName: lastName,
-//     email: email,
-//     userName: userName,
-//     passWord: passWord,
-//     city: city
-//   })
-//   .then(res => this.setState({ regUser:
-//   [...this.state.regUser, res.data] }));
-// }
+regUser = (FirstName, LastName, Email, UserName, PassWord, City) => {
+
+  axios.post('http://localhost/examensarbete_a/api/user/create.php', {
+    FirstName: FirstName,
+    LastName: LastName,
+    Email: Email,
+    UserName: UserName,
+    PassWord: PassWord,
+    City: City
+  })
+  .then(res => this.setState({ regUser:
+  [...this.state.regUser, res.data] }))
+  .catch(function(error){
+    console.log(error);
+  });
+  // .then(res => this.setState({ regUser:
+  //   res.data }));
+  // .then(res => this.state(res.data));
+}
 
 //Test Create
-testCreate = (TestID) => {
-  console.log(TestID)
+testCreate = (TestID, TestName) => {
+  // console.log(TestID);
   axios.post('http://localhost/examensarbete_a/api/test/create.php', {
-    TestID
+      TestID: TestID,    
+      TestName: TestName
   })
   .then(res => this.setState({ testCreate:
    res.data }));
 }
 
 //Add Choice
-addChoice = (MatchID) => {
-  const newChoice = {
-    MatchID: MatchID,
-  }
+addChoice = (MatchName) => {
+  console.log(MatchName)
+  axios.post('http://localhost/examensarbete_a/api/game/create.php', {
+    // MatchID: uuid(),
+    MatchName
+  })
+  .then(res => this.setState({ addChoice:
+   res.data }));
 
-  this.setState({
-    choices: [...this.state.choices, newChoice]
-  });
+  // const newChoice = {
+  //   MatchID: MatchID,
+  // }
+
+  // this.setState({
+  //   choices: [...this.state.choices, newChoice]
+  // });
 }
 
   render() {
