@@ -44,7 +44,7 @@ componentDidMount(){
 }
 
 //Register User
-regUser = ({FirstName, LastName, Email, UserName, PassWord, City}) => {
+regUser = (FirstName, LastName, Email, UserName, PassWord, City) => {
 
   axios.post('http://localhost/examensarbete_a/api/user/create.php', {
     FirstName: FirstName,
@@ -52,15 +52,21 @@ regUser = ({FirstName, LastName, Email, UserName, PassWord, City}) => {
     Email: Email,
     UserName: UserName,
     PassWord: PassWord,
-    City: City,
+    City: City
   })
-  // .then(res => this.setState({ users:
-  // [...this.state.users, res.data] }))
-  // .catch(function(error){
-  //   console.log(error);
-  // });
-  .then(res => this.setState({ regUser:
-    res.data }));
+    // .then(res => {
+    //   console.log(res);
+    //   console.log(res.data);
+    // });
+  .then(function (res) {
+    console.log(res);
+    //res => this.setState({ regUser: [...this.state.regUser, res.data] });
+  })
+  .catch(function(error){
+    console.log(error);
+  });
+  // .then(res => this.setState({ regUser:
+  //   res.data }));
   // .then(res =>   console.log(this.state.regUser));
 }
 
