@@ -18,12 +18,20 @@ export class RegUser extends Component {
     onSubmit = (e) => {
         e.preventDefault();
         
-        this.props.regUser(this.state.FirstName);
-        this.props.regUser(this.state.LastName);
-        this.props.regUser(this.state.Email);
-        this.props.regUser(this.state.UserName);
-        this.props.regUser(this.state.PassWord);
-        this.props.regUser(this.state.City);
+        this.props.regUser({
+            FirstName: this.state.FirstName,
+            LastName: this.state.LastName,
+            Email: this.state.Email,
+            UserName: this.state.UserName,
+            PassWord: this.state.PassWord,
+            City: this.state.City
+        });
+        
+        // this.props.regUser(this.state.LastName);
+        // this.props.regUser(this.state.Email);
+        // this.props.regUser(this.state.UserName);
+        // this.props.regUser(this.state.PassWord);
+        // this.props.regUser(this.state.City);
 
         this.setState({ FirstName: ''});
         this.setState({ LastName: ''});
@@ -54,6 +62,15 @@ const regFormStyle = {
     background: 'lightGrey',
     padding: '20px',
     textAlign: 'center'
-}
+};
+
+// const regUserData = {
+//     FirstName: this.state.FirstName,
+//     LastName: this.state.LastName,
+//     Email: this.state.Email,
+//     UserName: this.state.UserName,
+//     PassWord: this.state.PassWord,
+//     City: this.state.City
+// };
 
 export default RegUser

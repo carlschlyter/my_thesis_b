@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route} from 'react-router-dom';
 import Header from './components/layout/Header';
+import HeaderLoggedIn from './components/layout/HeaderLoggedIn';
 import StartPage from './components/StartPage';
 import Choices from './components/Choices';
 import Register from './components/pages/Register';
 import Login from './components/pages/Login';
+import Logout from './components/pages/Logout';
 import Guessing from './components/pages/Guessing';
 import GuessResults from './components/pages/GuessResults';
 import Toplist from './components/pages/Toplist';
-import Test from './components/pages/Test';
 import RegUser from './components/RegUser';
-import TestCreate from './components/TestCreate';
-import AddChoice from './components/AddChoice';
 import './App.css';
 import axios from 'axios';
+import LogInUser from './components/LogInUser';
 // import uuid from 'uuid';
 
 
@@ -44,7 +44,7 @@ componentDidMount(){
 }
 
 //Register User
-regUser = (FirstName, LastName, Email, UserName, PassWord, City) => {
+regUser = ({FirstName, LastName, Email, UserName, PassWord, City}) => {
 
   axios.post('http://localhost/examensarbete_a/api/user/create.php', {
     FirstName: FirstName,
@@ -106,30 +106,72 @@ addChoice = (MatchName) => {
       <Router>
         <div className="App">
           <div className="container">
-            <Header />
-            <Route exact path="/" render={props => (
+            <Route render={props => (
               <React.Fragment>
-                <StartPage  />
-                <AddChoice addChoice={this.addChoice}/>
-                <Choices choices={this.state.choices}/> 
+                <Route exact path="/" render={props => (
+                  <React.Fragment>
+                    <Header />
+                    <StartPage  />
+                    <Choices choices={this.state.choices}/> 
+                  </React.Fragment>
+                )} />
+                <Route path="/register" render={props => (
+                  <React.Fragment>
+                    <Header />
+                    <Register />
+                    <RegUser regUser={this.regUser}/>
+                  </React.Fragment>
+                )} />
+                <Route path="/login" render={props => (               
+                  <React.Fragment>
+                    <Header />
+                    <Login />
+                    <LogInUser loginUser={this.loginUser}/>
+                  </React.Fragment>  
+                )} />
+                <Route path="/toplist" render={props => (
+                  <React.Fragment>
+                    <Header />
+                    <Toplist />
+                  </React.Fragment>
+                )} />
               </React.Fragment>
-            )} />
-            <Route path="/register" render={props => (
+            )} />           
+            <Route render={props => (
               <React.Fragment>
-                <Register />
-                <RegUser regUser={this.regUser}/>
+                <Route exact path="/" render={props => (
+                  <React.Fragment>
+                    <HeaderLoggedIn />
+                    <StartPage  />
+                    <Choices choices={this.state.choices}/> 
+                  </React.Fragment>
+                )} />
+                <Route path="/logout" render={props => (               
+                  <React.Fragment>
+                    <HeaderLoggedIn />
+                    <Logout />
+                  </React.Fragment>  
+                )} />
+                <Route exact path="/guessing" render={props => (               
+                  <React.Fragment>
+                    <HeaderLoggedIn />
+                    <Guessing />
+                  </React.Fragment>  
+                )} />
+                <Route exact path="/guessresults" render={props => (               
+                  <React.Fragment>
+                    <HeaderLoggedIn />
+                    <GuessResults />
+                  </React.Fragment>  
+                )} />
+                <Route path="/toplist" render={props => (
+                  <React.Fragment>
+                    <HeaderLoggedIn />
+                    <Toplist />
+                  </React.Fragment>
+                )} />
               </React.Fragment>
-            )} />
-            <Route path="/login" component={Login} />
-            <Route path="/guessing" component={Guessing} />
-            <Route path="/guessResults" component={GuessResults} />
-            <Route path="/toplist" component={Toplist} />
-            <Route path="/test" render={props => (
-              <React.Fragment>
-                <Test />
-                <TestCreate testCreate={this.testCreate}/>
-              </React.Fragment>
-            )} />
+            )} />           
           </div>
         </div>        
       </Router>
