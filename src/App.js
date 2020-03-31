@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route} from 'react-router-dom';
-import Header from './components/layout/Header';
+// import Header from './components/layout/Header';
 import HeaderLoggedIn from './components/layout/HeaderLoggedIn';
 import StartPage from './components/StartPage';
 import Choices from './components/Choices';
 import Register from './components/pages/Register';
-import Login from './components/pages/Login';
-import Logout from './components/pages/Logout';
+// import Login from './components/pages/Login';
+// import Logout from './components/pages/Logout';
 import Guessing from './components/pages/Guessing';
 import GuessResults from './components/pages/GuessResults';
 import Toplist from './components/pages/Toplist';
 import RegUser from './components/RegUser';
 import './App.css';
 import axios from 'axios';
-import LogInUser from './components/LogInUser';
+import ToplistList from './components/ToplistList';
+// import LogInUser from './components/LogInUser';
 // import uuid from 'uuid';
 
 
@@ -34,14 +35,15 @@ class App extends Component {
       //   MatchName: 'Iceland-Norway'
       // }
     ]    
-  }
 
+  }
 
 componentDidMount(){
   axios.get('http://localhost/examensarbete_a/api/game/read.php')
   .then(res => this.setState({ choices: res.data }))
   // .then(res => console.log(res.data))
 }
+
 
 //Register User
 regUser = ({FirstName, LastName, Email, UserName, PassWord, City}) => {
@@ -106,7 +108,7 @@ addChoice = (MatchName) => {
       <Router>
         <div className="App">
           <div className="container">
-            <Route render={props => (
+            {/* <Route render={props => (
               <React.Fragment>
                 <Route exact path="/" render={props => (
                   <React.Fragment>
@@ -136,7 +138,7 @@ addChoice = (MatchName) => {
                   </React.Fragment>
                 )} />
               </React.Fragment>
-            )} />           
+            )} />            */}
             <Route render={props => (
               <React.Fragment>
                 <Route exact path="/" render={props => (
@@ -146,10 +148,11 @@ addChoice = (MatchName) => {
                     <Choices choices={this.state.choices}/> 
                   </React.Fragment>
                 )} />
-                <Route path="/logout" render={props => (               
+                <Route path="/register" render={props => (               
                   <React.Fragment>
                     <HeaderLoggedIn />
-                    <Logout />
+                    <Register />
+                    <RegUser regUser={this.regUser}/>
                   </React.Fragment>  
                 )} />
                 <Route exact path="/guessing" render={props => (               
@@ -168,6 +171,7 @@ addChoice = (MatchName) => {
                   <React.Fragment>
                     <HeaderLoggedIn />
                     <Toplist />
+                    <ToplistList />
                   </React.Fragment>
                 )} />
               </React.Fragment>
