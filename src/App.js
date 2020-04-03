@@ -8,12 +8,14 @@ import Register from './components/pages/Register';
 // import Login from './components/pages/Login';
 // import Logout from './components/pages/Logout';
 import Guessing from './components/pages/Guessing';
-import GuessResults from './components/pages/GuessResults';
+import CreateGuess from './components/CreateGuess';
+import GuessersAverage from './components/pages/GuessersAverage';
 import Toplist from './components/pages/Toplist';
 import RegUser from './components/RegUser';
 import './App.css';
 import axios from 'axios';
 import ToplistList from './components/ToplistList';
+import GuessersAverageList from './components/GuessersAverageList';
 // import LogInUser from './components/LogInUser';
 // import uuid from 'uuid';
 
@@ -71,6 +73,33 @@ regUser = ({FirstName, LastName, Email, UserName, PassWord, City}) => {
   //   res.data }));
   // .then(res =>   console.log(this.state.regUser));
 }
+
+//Create Guess (bet)
+createGuess = ({BetterNick, MatchName, GoalsHomeBet, GoalsAwayBet, WinningTeamBet}) => {
+
+  axios.post('http://localhost/examensarbete_a/api/bets/create.php', {
+    BetterNick: BetterNick,
+    MatchName: MatchName,
+    GoalsHomeBet: GoalsHomeBet,
+    GoalsAwayBet: GoalsAwayBet,
+    WinningTeamBet: WinningTeamBet
+  })
+    // .then(res => {
+    //   console.log(res);
+    //   console.log(res.data);
+    // });
+  .then(function (res) {
+    console.log(res);
+    //res => this.setState({ regUser: [...this.state.regUser, res.data] });
+  })
+  .catch(function(error){
+    console.log(error);
+  });
+  // .then(res => this.setState({ regUser:
+  //   res.data }));
+  // .then(res =>   console.log(this.state.regUser));
+}
+
 
 //Test Create
 testCreate = (TestID, TestName) => {
@@ -159,12 +188,14 @@ addChoice = (MatchName) => {
                   <React.Fragment>
                     <HeaderLoggedIn />
                     <Guessing />
+                    <CreateGuess />
                   </React.Fragment>  
                 )} />
-                <Route exact path="/guessresults" render={props => (               
+                <Route exact path="/guessersaverage" render={props => (               
                   <React.Fragment>
                     <HeaderLoggedIn />
-                    <GuessResults />
+                    <GuessersAverage />
+                    <GuessersAverageList />
                   </React.Fragment>  
                 )} />
                 <Route path="/toplist" render={props => (

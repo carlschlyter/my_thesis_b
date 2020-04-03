@@ -7,21 +7,6 @@ export default class ToplistList extends Component {
 
     state = {
         toplistItems: [
-            // {
-            //     id: 1,
-            //     title: 'The best',
-            //     completed: false
-            // },
-            // {
-            //     id: 2,
-            //     title: 'Second best',
-            //     completed: false
-            // },
-            // {
-            //     id: 3,
-            //     title: 'Third best',
-            //     completed: false
-            // },
         ]
     }
 

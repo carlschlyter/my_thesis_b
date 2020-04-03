@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 export default function HeaderLoggedIn() {
     return (
         <header style={headerStyle}>
-            <h1>The Guessing App - Logged In</h1>
-            <Link style={linkStyle} to="/">Home</Link> | <Link style={linkStyle} to="/Register">Register</Link>  | <Link style={linkStyle} to="/Guessing">Guessing</Link> | <Link style={linkStyle} to="GuessResults">Guess Results</Link> | <Link style={linkStyle} to="Toplist">Toplist</Link>
+            <h1>The Guessing App</h1>
+            <Link style={linkStyle} to="/">Home</Link> | <Link style={linkStyle} to="/Register">Register</Link>  | <Link style={linkStyle} to="/Guessing">Guessing</Link> | <Link style={linkStyle} to="GuessersAverage">Guessers Average</Link> | <Link style={linkStyle} to="Toplist">Toplist</Link>
         </header>
     )
 }

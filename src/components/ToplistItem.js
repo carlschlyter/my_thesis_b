@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 export default class ToplistItem extends Component {
@@ -6,8 +6,8 @@ export default class ToplistItem extends Component {
         return (
             <div style={itemStyle}>
                 <p> 
-                { this.props.toplistItem.BetterNick} {': Total points: '} 
-                { this.props.toplistItem.TotPoints}
+                { this.props.toplistItem.BetterNick } {': Total points: '} 
+                { this.props.toplistItem.TotPoints }
                 </p> 
             </div>
         )
