@@ -36,7 +36,7 @@ export default class CreateGuess extends Component {
         return (
             <div>
                 <form onSubmit={this.onSubmit} style={regFormStyle}>
-                    <input className="std-input" id="BetterNick" type="text" name="BetterNick" placeholder="Better Nick" value={this.state.BetterNick} onChange={this.onChange}/><br/>
+                    <input className="std-input" id="BetterNick" type="text" name="BetterNick" placeholder="User Name" value={this.state.BetterNick} onChange={this.onChange}/><br/>
                     <input className="std-input" id="MatchName" type="text" name="MatchName" placeholder="Match Name" value={this.state.MatchName} onChange={this.onChange}/><br/>
                     <input className="std-input" id="GoalsHomeBet" type="text" name="GoalsHomeBet" placeholder="Goals Home Bet" value={this.state.GoalsHomeBet} onChange={this.onChange}/><br/>
                     <input className="std-input" id="GoalsAwayBet" type="text" name="GoalsAwayBet" placeholder="Goals Away Bet" value={this.state.GoalsAwayBet} onChange={this.onChange}/><br/>

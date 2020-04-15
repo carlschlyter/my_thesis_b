@@ -45,11 +45,11 @@ export class RegUser extends Component {
         return (
             <div>
                 <form onSubmit={this.onSubmit} style={regFormStyle}>
-                    <input className="std-input" id="FirstName" type="text" name="FirstName" placeholder="FirstName" value={this.state.FirstName} onChange={this.onChange}/><br/>   
-                    <input className="std-input" id="LastName" type="text" name="LastName" placeholder="LastName" value={this.state.LastName} onChange={this.onChange}/><br/>
+                    <input className="std-input" id="FirstName" type="text" name="FirstName" placeholder="First Name" value={this.state.FirstName} onChange={this.onChange}/><br/>   
+                    <input className="std-input" id="LastName" type="text" name="LastName" placeholder="Last Name" value={this.state.LastName} onChange={this.onChange}/><br/>
                     <input className="std-input" id="Email" type="text" name="Email" placeholder="Email" value={this.state.Email} onChange={this.onChange}/><br/>
-                    <input className="std-input" id="UserName" type="text" name="UserName" placeholder="UserName" value={this.state.UserName} onChange={this.onChange}/><br/>
-                    <input className="std-input" id="PassWord" type="text" name="PassWord" placeholder="PassWord" value={this.state.PassWord} onChange={this.onChange}/><br/>
+                    <input className="std-input" id="UserName" type="text" name="UserName" placeholder="User Name" value={this.state.UserName} onChange={this.onChange}/><br/>
+                    <input className="std-input" id="PassWord" type="text" name="PassWord" placeholder="Pass Word" value={this.state.PassWord} onChange={this.onChange}/><br/>
                     <input className="std-input" id="City" type="text" name="City" placeholder="City" value={this.state.City} onChange={this.onChange}/><br/>
                     <input className="btn" id="submitBtn" type="submit" name="skicka" value="Submit"/><br></br>
                 </form>

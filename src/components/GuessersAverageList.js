@@ -7,7 +7,6 @@ export default class GuessersAverageList extends Component {
 
     state = {
         guessersAverageListItems: [
-
         ]
     }
 

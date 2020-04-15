@@ -137,37 +137,6 @@ addChoice = (MatchName) => {
       <Router>
         <div className="App">
           <div className="container">
-            {/* <Route render={props => (
-              <React.Fragment>
-                <Route exact path="/" render={props => (
-                  <React.Fragment>
-                    <Header />
-                    <StartPage  />
-                    <Choices choices={this.state.choices}/> 
-                  </React.Fragment>
-                )} />
-                <Route path="/register" render={props => (
-                  <React.Fragment>
-                    <Header />
-                    <Register />
-                    <RegUser regUser={this.regUser}/>
-                  </React.Fragment>
-                )} />
-                <Route path="/login" render={props => (               
-                  <React.Fragment>
-                    <Header />
-                    <Login />
-                    <LogInUser loginUser={this.loginUser}/>
-                  </React.Fragment>  
-                )} />
-                <Route path="/toplist" render={props => (
-                  <React.Fragment>
-                    <Header />
-                    <Toplist />
-                  </React.Fragment>
-                )} />
-              </React.Fragment>
-            )} />            */}
             <Route render={props => (
               <React.Fragment>
                 <Route exact path="/" render={props => (
