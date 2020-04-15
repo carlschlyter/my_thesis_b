@@ -78,8 +78,8 @@ regUser = ({FirstName, LastName, Email, UserName, PassWord, City}) => {
 createGuess = ({BetterNick, MatchName, GoalsHomeBet, GoalsAwayBet, WinningTeamBet}) => {
 
   axios.post('http://localhost/examensarbete_a/api/bets/create.php', {
-    // BetterNick: BetterNick,
-    // MatchName: MatchName,
+    BetterNick: BetterNick,
+    MatchName: MatchName,
     GoalsHomeBet: GoalsHomeBet,
     GoalsAwayBet: GoalsAwayBet,
     WinningTeamBet: WinningTeamBet
