@@ -39,6 +39,8 @@ export class RegUser extends Component {
         this.setState({ UserName: ''});
         this.setState({ PassWord: ''});
         this.setState({ City: ''});
+
+        document.querySelector("#regMessageBox").innerHTML = "Du är registrerad!"
     }
 
     render() {
@@ -52,6 +54,7 @@ export class RegUser extends Component {
                     <input className="std-input" id="PassWord" type="text" name="PassWord" placeholder="Pass Word" value={this.state.PassWord} onChange={this.onChange}/><br/>
                     <input className="std-input" id="City" type="text" name="City" placeholder="City" value={this.state.City} onChange={this.onChange}/><br/>
                     <input className="btn" id="submitBtn" type="submit" name="skicka" value="Submit"/><br></br>
+                    <p id="regMessageBox"></p>
                 </form>
             </div>
         )

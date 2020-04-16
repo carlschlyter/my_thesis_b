@@ -30,6 +30,8 @@ export default class CreateGuess extends Component {
         this.setState({ GoalsHomeBet: ''});
         this.setState({ GoalsAwayBet: ''});
         this.setState({ WinningTeamBet: ''});
+
+        document.querySelector("#guessMessageBox").innerHTML = "Din gissning är registrerad!"
     }
 
     render() {
@@ -42,6 +44,7 @@ export default class CreateGuess extends Component {
                     <input className="std-input" id="GoalsAwayBet" type="text" name="GoalsAwayBet" placeholder="Goals Away Bet" value={this.state.GoalsAwayBet} onChange={this.onChange}/><br/>
                     <input className="std-input" id="WinningTeamBet" type="text" name="WinningTeamBet" placeholder="Winning Team Bet" value={this.state.WinningTeamBet} onChange={this.onChange}/><br/>
                     <input className="btn" id="submitBtn" type="submit" name="skicka" value="Submit"/><br></br>
+                    <p id="guessMessageBox"></p>
                 </form>
             </div>
         )
